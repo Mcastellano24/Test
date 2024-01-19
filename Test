@@ -1,0 +1,49 @@
+// intended output
+   *
+  ***
+ *****
+
+ 
+  ***
+   *
+
+
+int main() {
+
+  int TOTAL_ROWS;
+  printf("Enter number of rows\n");
+  scanf("%d", &TOTAL_ROWS);
+
+  int row, col, numstars=1;
+  int half, rate = 1;
+
+  // Loop through each row.
+  for (row=1; row<=TOTAL_ROWS; row++) {
+
+     half= TOTAL_ROWS/2;
+
+     // Draw the blanks before the stars
+     for (col=0; col< half + 1 -numstars; col++)
+       printf(" ");
+
+
+     // Draw the stars
+     for (col=1; col<= 2*numstars - 1; col++)
+         if (row == half + 1 || row == half + 2)
+           printf(" ");
+       else 
+       printf("*");
+
+     // If we hit the middle of the diamond, negate the rate.
+     if (numstars == (half + 1))
+       rate = -rate;
+
+     // Change numstars by the rate
+     numstars = numstars + rate;    
+
+     // Go to the new line.
+     printf("\n");
+  }
+ //system("pause");
+  return 0;
+}
